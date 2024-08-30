@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Our Services</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #a986cd;
+            background: url('img/glacier.jpg');
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 3px 4px 5px #d74fe9;
+            margin-bottom: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: right;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 80px; /* Adjust for fixed navbar */
+        }
+
+        .service-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box h2 {
+            font-size: 24px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .foot {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 50px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            clear: both;
+        }
+
+        .foot p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .foot a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .foot a:hover {
+            text-decoration: underline;
+        }
+
+        .foot .social-icons {
+            margin: 10px 0;
+        }
+
+        .foot .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feed.html">Feedback</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Our Services</h1>
+
+        <div class="services-container">
+            <div class="service-box">
+                <h2>Rescue</h2>
+                <p>We provide emergency rescue services to help those in critical situations. Our team is equipped with the necessary tools and skills to respond quickly and efficiently.</p>
+            </div>
+
+            <div class="service-box">
+                <h2>Food</h2>
+                <p>We supply food to those in need during emergencies. Our food distribution services ensure that everyone has access to essential nutrition during challenging times.</p>
+            </div>
+
+            <div class="service-box">
+                <h2>Tent</h2>
+                <p>Our tent services provide temporary shelter for individuals and families displaced by disasters. We ensure safe and secure accommodation in emergency situations.</p>
+            </div>
+
+            <div class="service-box">
+                <h2>Medical Emergency</h2>
+                <p>We offer medical emergency services to address health crises. Our medical team is prepared to handle various emergencies, providing care and support when it's needed most.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="foot">
+        <p>
+            <a href="help.html">Help</a>   •   
+            <a href="contact.html">Contact</a>   •   
+            <a href="about.html">About</a>   •   
+            <a href="feed.html">Feedback</a>
+        </p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Countdown to Catastrophe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

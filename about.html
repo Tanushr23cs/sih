@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>About Us - Countdown to Catastrophe</title>
+    <style>
+       body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #a986cd;
+            background: url('img/glacier.jpg');
+            background-size: cover;
+            padding: 20px;
+            color: white;
+            animation: backgroundSlide 10s infinite alternate;
+        }
+
+        @keyframes backgroundSlide {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 3px 4px 5px #d74fe9;
+            margin-bottom: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #777;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 4px #d74fe9;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+            animation: slideIn 1s ease-out;
+            color: black;
+            font-size: 22px;
+        }
+
+        .slideshow-container {
+            width: 1000px;
+            height: 500px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: black;
+            font-size: 22px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 50px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            clear: both;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-icons {
+            margin: 10px 0;
+        }
+
+        footer .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feed.html">Feedback</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1><i>Countdown to Catastrophe</i></h1>
+
+        <!-- Team Section -->
+        <div class="section">
+            <h2 class="section-title">Our Team: Hack Masters</h2>
+            <p>We are Hack Masters, a dedicated team working tirelessly to protect communities from the dangers of Glacial Lake Outburst Floods (GLOFs). Our mission is to offer help and support to those affected by GLOFs, utilizing state-of-the-art technology and innovative solutions to mitigate risks and ensure safety.</p>
+        </div>
+
+        <!-- Objectives and Sensors Slideshow -->
+        <div class="slideshow-container">
+            <div class="slide active">
+                <h2 class="section-title">Our Objectives</h2>
+                <p>We aim to revolutionize disaster preparedness with our Early Warning System (EWS) for GLOFs by focusing on:</p>
+                <ul>
+                    <li><strong>Enhanced Monitoring:</strong> Deploying cutting-edge sensors to continuously monitor glacial lakes, ensuring real-time data on water levels, temperature, and structural changes.</li>
+                    <li><strong>Predictive Analytics:</strong> Utilizing AI and machine learning models to predict potential flood events with high accuracy, providing critical lead time for evacuations.</li>
+                    <li><strong>Community Education:</strong> Implementing training programs for local communities to understand early warnings and take necessary precautions, increasing overall resilience.</li>
+                    <li><strong>Integrated Response:</strong> Coordinating with local authorities and disaster management teams to streamline communication and response efforts in the event of a GLOF.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2 class="section-title">Advanced Sensors</h2>
+                <p>Our system uses a variety of advanced sensors including:</p>
+                <ul>
+                    <li><strong>Remote Sensing:</strong> Satellite and drone technology provide high-resolution images and data on glacial lake conditions, identifying changes that may signal an imminent outburst.</li>
+                    <li><strong>IoT Sensors:</strong> Networked sensors continuously measure water levels, temperature, and seismic activity around glacial lakes, providing real-time data for analysis.</li>
+                    <li><strong>Water Flow Sensors:</strong> These sensors detect changes in water discharge from lakes, alerting to unusual flows that could precede a flood event.</li>
+                </ul>
+                <p>By combining these sensor types, our system achieves comprehensive monitoring and early detection capabilities, essential for effective GLOF management.</p>
+            </div>
+            <div class="slide">
+                <h2 class="section-title">IoT-Enabled Alerts</h2>
+                <p>Our alert system leverages IoT technology to ensure timely and accurate warnings:</p>
+                <ul>
+                    <li><strong>Multi-Channel Alerts:</strong> Alerts are delivered via SMS, mobile apps, and siren systems to ensure everyone in the affected area receives the message promptly.</li>
+                    <li><strong>Geo-Targeted Notifications:</strong> Alerts are customized based on location, ensuring that specific communities receive relevant and actionable information.</li>
+                    <li><strong>24/7 Monitoring:</strong> Our system operates continuously, providing round-the-clock surveillance and immediate alerts when thresholds are breached.</li>
+                </ul>
+                <p>This approach ensures maximum reach and efficacy, allowing for swift community response and evacuation if necessary.</p>
+            </div>
+            <div class="slide">
+                <h2 class="section-title">Machine Learning Analysis</h2>
+                <p>Machine learning is at the core of our predictive capabilities:</p>
+                <ul>
+                    <li><strong>Data Integration:</strong> Our algorithms integrate data from various sources, including remote sensors, historical data, and environmental factors, to create a comprehensive analysis framework.</li>
+                    <li><strong>Predictive Modeling:</strong> We use machine learning models to identify patterns and anomalies in the data that may indicate a high risk of GLOF events, allowing us to forecast floods before they happen.</li>
+                    <li><strong>Continuous Improvement:</strong> Our models learn and adapt over time, becoming more accurate as more data is collected, ensuring the highest level of prediction accuracy.</li>
+                </ul>
+                <p>By harnessing the power of AI, we aim to provide reliable and actionable insights that help protect lives and property from the threat of GLOFs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="foot">
+        <p><a href="help.html">Help</a>   •   <a href="contact.html">Contact</a>   •   <a href="about.html">About</a>   •   <a href="feedback.html">Feedback</a></p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Countdown to Catastrophe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // JavaScript for slideshow
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showNextSlide() {
+            slides[currentSlideIndex].classList.remove('active');
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            slides[currentSlideIndex].classList.add('active');
+        }
+
+        // Show each slide every 4 seconds
+        setInterval(showNextSlide, 4000);
+    </script>
+</body>
+</html>

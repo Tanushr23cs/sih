@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Alert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #e0e0e0;
+            background: url('img/glacier2.jpg');
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: right;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+
+        .alert-box {
+            background-color: #ffdddd;
+            color: #a00;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .alert-box i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .alert-box:hover {
+            background-color: #f8b2b2;
+        }
+
+        .alert-content {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .info-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .info-container h2 {
+            font-size: 36px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 4px #d74fe9;
+            margin-bottom: 20px;
+            margin margin-top: 15px;
+        }
+
+        .info-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-container .see-more {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .info-container .see-more:hover {
+            background-color: #555;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .slide p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .foot {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 50px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            clear: both;
+        }
+
+        .foot p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .foot .social-icons {
+            margin: 10px 0;
+        }
+
+        .foot .social-icons a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .foot .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feed.html">Feedback</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </div>
+    <h1 style="margin-top: 50px;padding-top: 25px; text-align: center; text-shadow: 2px 2px 4px #d74fe9;"><i>Countdown to Catastrophe</i></h1>
+
+    <div class="container">
+        
+
+        <div class="alert-box" onclick="toggleAlertContent()">
+            <i class="fas fa-exclamation-triangle"></i> Flood Alert!
+            <div class="alert-content" id="alertContent">
+                <p>Please contact this number: 9791634503</p>
+                <p>Take safety measures and precautions as given below:</p>
+                <ul>
+                    <li>Move to higher ground immediately.</li>
+                    <li>Avoid walking or driving through floodwaters.</li>
+                    <li>Stay away from power lines and electrical equipment.</li>
+                    <li>Follow local news and emergency instructions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-container">
+            <h2>About GLOFs</h2>
+            <p>Glacial Lake Outburst Floods (GLOFs) occur when a glacial lake dam, formed by a glacier, fails suddenly, causing a massive release of water and debris downstream. These floods can be catastrophic, leading to loss of life, property damage, and disruption of ecosystems.</p>
+            <button class="see-more" onclick="window.location.href='glofs-details.html'">See More</button>
+        </div>
+
+        <!-- Slideshow for Precautions -->
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="img/high.jpeg" alt="Precaution 1">
+                <p>Always move to higher ground and avoid low-lying areas.</p>
+            </div>
+            <div class="slide fade">
+                <img src="img/stay.jpg" alt="Precaution 2">
+                <p>Stay away from floodwaters, which may be contaminated or contain debris.</p>
+            </div>
+            <div class="slide fade">
+                <img src="img/emerg.jpg
+                " alt="Precaution 3">
+                <p>Ensure you have an emergency kit with essential supplies.</p>
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="foot">
+        <p>Help   •   Contact   • About   •   Feedback</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Countdown to Catastrophe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function toggleAlertContent() {
+            const alertContent = document.getElementById('alertContent');
+            if (alertContent.style.display === 'none' || alertContent.style.display === '') {
+                alertContent.style.display = 'block';
+            } else {
+                alertContent.style.display = 'none';
+            }
+        }
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+    </script>
+</body>
+</html>

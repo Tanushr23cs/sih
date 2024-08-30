@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Help Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #a986cd;
+            background: url('img/glacier.jpg');
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 3px 4px 5px #d74fe9;
+            margin-bottom: 30px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: right;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin: 100px 0 20px; /* Adjusted margin to account for fixed navbar */
+        }
+
+        .help-form {
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+            color: #0f0a10;
+        }
+
+        .help-form h2 {
+            font-size: 36px;
+            color: #0f0a10;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #d74fe9;
+            margin-bottom: 20px;
+        }
+
+        .help-form label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .help-form input[type="text"],
+        .help-form input[type="email"],
+        .help-form input[type="number"],
+        .help-form textarea {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .help-form button {
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .help-form button:hover {
+            background-color: #555;
+        }
+
+        .foot {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 50px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            clear: both;
+        }
+
+        .foot p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .foot .social-icons {
+            margin: 10px 0;
+        }
+
+        .foot .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feed.html">Feedback</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1><i>Need Help?</i></h1>
+
+        <div class="form-container">
+            <div class="help-form">
+                <h2>Describe Your Problem</h2>
+                <form onsubmit="showPopup(event)">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="number" id="phone" placeholder="Enter your phone number" required>
+
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Enter your address" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+
+                    <label for="problem">Describe Your Problem</label>
+                    <textarea id="problem" rows="4" placeholder="Describe your problem here" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="foot">
+        <p>Help   •   Contact   • About   •   Feedback</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Countdown to Catastrophe. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function showPopup(event) {
+            event.preventDefault();
+            alert("Don't worry, we will help you!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOFs Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #a986cd;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: right;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+        }
+
+        .info-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .info-container h2 {
+            font-size: 36px;
+            color: #0f0a10;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 4px #d74fe9;
+            margin-bottom: 20px;
+        }
+
+        .info-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .info-container .precautions {
+            text-align: left;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .info-container .precautions ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .info-container .precautions li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .slideshow {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slideshow img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .slideshow img.active {
+            display: block;
+        }
+
+        .foot {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 50px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            clear: both;
+        }
+
+        .foot p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .foot .social-icons {
+            margin: 10px 0;
+        }
+
+        .foot .social-icons a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .foot .social-icons i {
+            margin: 0 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="feed.html">Feedback</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </div>
+
+    <div class="info-container">
+        <h2>Detailed Information about GLOFs</h2>
+        <p>Glacial Lake Outburst Floods (GLOFs) occur when a dam holding back a glacial lake fails suddenly, releasing a massive amount of water and debris downstream. This can result in significant flooding and destruction. GLOFs are a serious natural hazard in areas with glacial lakes, often leading to catastrophic consequences for communities and ecosystems downstream.</p>
+        <p>These floods can be triggered by various factors including glacier melting, heavy rainfall, or seismic activity. The rapid release of water can lead to downstream flooding, property damage, and loss of life. Early warning systems and emergency preparedness are crucial in mitigating the impact of GLOFs.</p>
+        
+        <div class="precautions">
+            <h3>Precautions to Take During a Flood:</h3>
+            <ul>
+                <li>Move to higher ground immediately and stay there.</li>
+                <li>Avoid walking or driving through floodwaters.</li>
+                <li>Keep away from electrical equipment and power lines.</li>
+                <li>Follow local news and emergency services instructions.</li>
+                <li>Prepare an emergency kit with essential supplies.</li>
+            </ul>
+        </div>
+
+        <div class="slideshow">
+            <img src="img/img1.jpeg" alt="Flood Image 1" class="active">
+            <img src="img/im2.jpg" alt="Flood Image 2">
+            <img src="img/img5.jpg" alt="Flood Image 3">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="foot">
+        <p>Help   •   Contact   • About   •   Feedback</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2024 Countdown to Catastrophe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        let slideIndex = 0;
+        function showSlides() {
+            const slides = document.querySelectorAll('.slideshow img');
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === slideIndex) ? 'block' : 'none';
+            });
+            slideIndex = (slideIndex + 1) % slides.length;
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        showSlides();
+    </script>
+</body>
+</html>
